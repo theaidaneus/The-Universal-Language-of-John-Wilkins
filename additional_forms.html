@@ -1,0 +1,884 @@
+<!doctype html>
+<html>
+  <head>
+    <title>The Universal Language of John Wilkins: Additional Word Forms</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <style type="text/css">
+      a {
+        text-decoration: none;
+      }
+    </style>
+    <div class="top-banner">
+         <p>
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/index.html"
+          >Introduction &amp Resources</a>
+        |
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/dictionary.html"
+          >Dictionary</a>
+        |
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/additional_forms.html"
+          >Additional Forms</a>
+        |
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/general_scheme.html"
+          >Organization of the <i>Essay</i></a>
+        |
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/synopsis.html"
+          >Synopsis (Summary Table)</a>
+        |
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/pronunciation_characters.html"
+          >Pronunciation &amp Character Components</a>
+        |
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/real_characters.html"
+          >All the Real Characters</a>
+      </p>
+    </div>
+    <div class="content" ;>
+      <h1
+        style="
+          text-align: center;
+          font-family: Garamond, &quot;Times New Roman&quot;, Times, serif;
+        "
+      >
+        The Universal Language of John Wilkins:<br />
+        Additional Word Forms
+      </h1>
+      <p style="text-align: left">
+        This page presents the thirty-six modifications that are possible for every genus, difference, and radical. For ease of presentation, marks indicating double opposites appear to the lower right of each character. While you may look up grammatical particles here, they cannot be modified.
+      </p>
+      <p style="text-align: left"></p>For information on specific words, see the <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/dictionary.html">Dictionary page</a>. For information on character components and pronunciation, see <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/pronunciation_characters.html">this guide</a>. The rules on forming
+        characters can be found on
+        <a href="https://www.google.ca/books/edition/An_Essay_Towards_a_Real_Character/Q85TAAAAcAAJ?hl=en&gbpv=1&pg=PA387"
+          target="_blank">pages 387-88</a
+        >, and the results here can be compared with the table in the Summary of Directions <a
+          href="https://drive.google.com/file/d/1p-0iTr8eayPBHMzbi4Dry_aXTQRKIIrV/view#page=3"
+          target="_blank"
+          >on the last page of the Synopsis</a
+        >, which shows the forms of the word "Adjuvant."</p>
+    </div>
+    <div id="container">
+      <p><b>Type or select a word in the list:</b></p>
+      <p></p>
+      <form autocomplete="off" id="search-form">
+        <input class="form-control" id="search-input" type="text" />
+        <div class="dropdown" id="dropdown"></div>
+      </form>
+      <table class="table" id="word-table">
+        <tbody id="word-table-body"></tbody>
+      </table>
+    </div>
+
+    <script>
+      let words = [];
+      const searchInput = document.getElementById("search-input");
+      const dropdown = document.getElementById("dropdown");
+      const wordTableBody = document.getElementById("word-table-body");
+
+      // Fetch words from the API
+      fetch(
+        "https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/data/words.json",
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          words = data;
+        });
+
+      // Filter words alphabetically, using the display column (p)
+      searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
+        dropdown.innerHTML = "";
+
+        if (query.length === 0) return;
+
+        const filteredwords = words.filter((word) =>
+          word.d.toLowerCase().includes(query),
+        );
+
+        filteredwords.forEach((word) => {
+          const item = document.createElement("div");
+          item.textContent = word.d;
+          item.addEventListener("click", () => selectword(word));
+          dropdown.appendChild(item);
+        });
+      });
+
+      // Select word from dropdown
+      function selectword(word) {
+        searchInput.value = word.d;
+        dropdown.innerHTML = "";
+        // Basic information
+        wordTableBody.innerHTML = `
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+                  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+                  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-8wa7{font-size:medium;font-style:italic;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-xjr9{border-color:inherit;font-size:large;font-weight:bold;text-align:center;vertical-align:top}
+.tg .tg-zffl{font-size:100%;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-34bz{font-size:large;font-style:italic;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+.tg .tg-x42o{font-size:medium;font-weight:bold;text-align:left;vertical-align:top}
+</style>
+<table class="tg"><thead>
+                  <tr>
+                    <th class="tg-xjr9" colspan="2" style="background-color: #d4d4d4;"><b></b></th>
+                    <th class="tg-xjr9" style="text-align:center;background-color: #d4d4d4;">Real Characters</th>
+                    <th class="tg-xjr9" style="text-align:center;background-color: #d4d4d4;">Phonetic Pronunciation</th>
+                    <th class="tg-xjr9" style="text-align:center;background-color: #d4d4d4;">IPA<sup>1</sup></th>
+                    <th class="tg-xjr9" colspan="2" style="background-color: #d4d4d4;"><b></b></th>
+                    <th class="tg-xjr9" style="text-align:center;background-color: #d4d4d4;">Real Characters</th>
+                    <th class="tg-xjr9" style="text-align:center;background-color: #d4d4d4;">Phonetic Pronunciation</th>
+                    <th class="tg-xjr9" style="text-align:center;background-color: #d4d4d4;">IPA<sup>1</sup></th>
+                  </tr></thead>
+<tbody>
+                  <tr>
+                    <td class="tg-34bz" colspan="2" style="background-color: #d4d4d4;"><b><i>Concrete Singular</i></b></td>
+                    <td class="tg-zffl" style="background-color: #d4d4d4;"></td>
+                    <td class="tg-zffl" style="background-color: #d4d4d4;"></td>
+                    <td class="tg-zffl" style="background-color: #d4d4d4;"></td>
+                    <td class="tg-34bz" colspan="2" style="background-color: #d4d4d4;"><b><i>Abstract Singular</b></i></td>
+                    <td class="tg-0lax" style="background-color: #d4d4d4;"></td>
+                    <td class="tg-0lax" style="background-color: #d4d4d4;"></td>
+                    <td class="tg-0lax" style="background-color: #d4d4d4;"></td>
+                  </tr>
+                  <tr>
+                    <td class="tg-8wa7" rowspan="3" style="border-bottom: 1px solid black;"><b><i>Substantive</i></b></td>
+                    <td class="tg-x42o"><b>Neuter</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CN${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_SS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w1}${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i1}${word.i7}" target="_blank">${word.i1}${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-8wa7" rowspan="3" style="border-bottom: 1px solid black;"><b><i>Substantive</i></b></td>
+                    <td class="tg-x42o"><b>Neuter</b></td>
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AN${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_SS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w1}${word.w8}${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i1}${word.i8}${word.i9}" target="_blank">${word.i1}${word.i8}${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+                  <tr>
+                    <td class="tg-x42o"><b>Active</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CA${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_SS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w1}l${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i1}l${word.i7}" target="_blank">${word.i1}l${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-x42o"><b>Active</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AA${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_SS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w1}l${word.w8}${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i1}l${word.i8}${word.i9}" target="_blank">${word.i1}l${word.i8}${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+                  <tr>
+                    <td class="tg-x42o" style="border-bottom: 1px solid black;"><b>Passive</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;border-bottom: 1px solid black;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CP${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_SS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;border-bottom: 1px solid black;">${word.w1}m${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;border-bottom: 1px solid black;"><a href="http://ipa-reader.com/?text=${word.i1}m${word.i7}" target="_blank">${word.i1}m${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-x42o" style="border-bottom: 1px solid black;"><b>Passive</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;border-bottom: 1px solid black;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AP${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_SS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;border-bottom: 1px solid black;">${word.w1}m${word.w8}${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;border-bottom: 1px solid black;"><a href="http://ipa-reader.com/?text=${word.i1}m${word.i8}${word.i9}" target="_blank">${word.i1}m${word.i8}${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+
+                  <tr>
+                    <td class="tg-8wa7" rowspan="3" style="border-bottom: 1px solid black;"><b><i>Adjective</i></b></td>
+                    <td class="tg-x42o"><b>Neuter</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CN${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_JS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w2}${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i2}${word.i7}" target="_blank">${word.i2}${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-8wa7" rowspan="3" style="border-bottom: 1px solid black;"><b><i>Adjective</i></b></td>
+                    <td class="tg-x42o"><b>Neuter</b></td>
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AN${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_JS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w2}${word.w8}${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i2}${word.i8}${word.i9}" target="_blank">${word.i2}${word.i8}${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+                  <tr>
+                    <td class="tg-x42o"><b>Active</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CA${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_JS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w2}l${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i2}l${word.i7}" target="_blank">${word.i2}l${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-x42o"><b>Active</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AA${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_JS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w2}${word.w8}l${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i2}${word.i8}l${word.i9}" target="_blank">${word.i2}${word.i8}l${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+                  <tr>
+                    <td class="tg-x42o" style="border-bottom: 1px solid black;"><b>Passive</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;border-bottom: 1px solid black;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CP${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_JS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;border-bottom: 1px solid black;">${word.w2}m${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;border-bottom: 1px solid black;"><a href="http://ipa-reader.com/?text=${word.i2}m${word.i7}" target="_blank">${word.i2}m${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-x42o" style="border-bottom: 1px solid black;"><b>Passive</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;border-bottom: 1px solid black;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AP${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_JS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;border-bottom: 1px solid black;">${word.w2}${word.w8}m${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;border-bottom: 1px solid black;"><a href="http://ipa-reader.com/?text=${word.i2}m${word.i8}${word.i9}" target="_blank">${word.i2}m${word.i8}${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+
+                  <tr>
+                    <td class="tg-8wa7" rowspan="3"><b><i>Adverb</i></b></td>
+                    <td class="tg-x42o"><b>Neuter</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CN${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_VS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w3}${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i3}${word.i7}" target="_blank">${word.i3}${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-8wa7" rowspan="3"><b><i>Adverb</i></b></td>
+                    <td class="tg-x42o"><b>Neuter</b></td>
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AN${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_VS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w3}${word.w8}${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i3}${word.i8}${word.i9}" target="_blank">${word.i3}${word.i8}${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+                  <tr>
+                    <td class="tg-x42o"><b>Active</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CA${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_VS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w3}l${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i3}l${word.i7}" target="_blank">${word.i3}l${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-x42o"><b>Active</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AA${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_VS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w3}${word.w8}l${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i3}${word.i8}l${word.i9}" target="_blank">${word.i3}${word.i8}l${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+                  <tr>
+                    <td class="tg-x42o"><b>Passive</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CP${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_VS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w3}m${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i3}m${word.i7}" target="_blank">${word.i3}m${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-x42o"><b>Passive</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AP${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_VS${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w3}${word.w8}m${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i3}${word.i8}m${word.i9}" target="_blank">${word.i3}${word.i8}m${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+
+
+
+
+
+
+
+
+                  <tr>
+                    <td class="tg-34bz" colspan="2" style="background-color: #d4d4d4;"><b><i>Concrete Plural</b></i></td>
+                    <td class="tg-zffl" style="background-color: #d4d4d4;"></td>
+                    <td class="tg-zffl" style="background-color: #d4d4d4;"></td>
+                    <td class="tg-zffl" style="background-color: #d4d4d4;"></td>
+                    <td class="tg-34bz" colspan="2" style="background-color: #d4d4d4;"><b><i>Abstract Plural</b></i></td>
+                    <td class="tg-0lax" style="background-color: #d4d4d4;"></td>
+                    <td class="tg-0lax" style="background-color: #d4d4d4;"></td>
+                    <td class="tg-0lax" style="background-color: #d4d4d4;"></td>
+                  </tr>
+                  <tr>
+                    <td class="tg-8wa7" rowspan="3" style="border-bottom: 1px solid black;"><b><i>Substantive</i></b></td>
+                    <td class="tg-x42o"><b>Neuter</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CN${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_SP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w4}${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i4}${word.i7}" target="_blank">${word.i4}${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-8wa7" rowspan="3" style="border-bottom: 1px solid black;"><b><i>Substantive</i></b></td>
+                    <td class="tg-x42o"><b>Neuter</b></td>
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AN${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_SP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w4}${word.w8}${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i4}${word.i8}${word.i9}" target="_blank">${word.i4}${word.i8}${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+                  <tr>
+                    <td class="tg-x42o"><b>Active</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CA${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_SP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w4}l${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i4}l${word.i7}" target="_blank">${word.i4}l${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-x42o"><b>Active</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AA${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_SP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w4}l${word.w8}${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i4}l${word.i8}${word.i9}" target="_blank">${word.i4}l${word.i8}${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+                  <tr>
+                    <td class="tg-x42o" style="border-bottom: 1px solid black;"><b>Passive</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;border-bottom: 1px solid black;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CP${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_SP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;border-bottom: 1px solid black;">${word.w4}m${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;border-bottom: 1px solid black;"><a href="http://ipa-reader.com/?text=${word.i4}m${word.i7}" target="_blank">${word.i4}m${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-x42o" style="border-bottom: 1px solid black;"><b>Passive</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;border-bottom: 1px solid black;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AP${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_SP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;border-bottom: 1px solid black;">${word.w4}m${word.w8}${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;border-bottom: 1px solid black;"><a href="http://ipa-reader.com/?text=${word.i4}m${word.i8}${word.i9}" target="_blank">${word.i4}m${word.i8}${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+
+                  <tr>
+                    <td class="tg-8wa7" rowspan="3" style="border-bottom: 1px solid black;"><b><i>Adjective</i></b></td>
+                    <td class="tg-x42o"><b>Neuter</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CN${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_JP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w5}${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i5}${word.i7}" target="_blank">${word.i5}${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-8wa7" rowspan="3" style="border-bottom: 1px solid black;"><b><i>Adjective</i></b></td>
+                    <td class="tg-x42o"><b>Neuter</b></td>
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AN${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_JP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w5}${word.w8}${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i5}${word.i8}${word.i9}" target="_blank">${word.i5}${word.i8}${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+                  <tr>
+                    <td class="tg-x42o"><b>Active</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CA${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_JP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w5}l${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i5}l${word.i7}" target="_blank">${word.i5}l${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-x42o"><b>Active</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AA${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_JP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w5}${word.w8}l${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i5}${word.i8}l${word.i9}" target="_blank">${word.i5}${word.i8}l${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+                  <tr>
+                    <td class="tg-x42o" style="border-bottom: 1px solid black;"><b>Passive</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;border-bottom: 1px solid black;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CP${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_JP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;border-bottom: 1px solid black;">${word.w5}m${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;border-bottom: 1px solid black;"><a href="http://ipa-reader.com/?text=${word.i5}m${word.i7}" target="_blank">${word.i5}m${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-x42o" style="border-bottom: 1px solid black;"><b>Passive</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;border-bottom: 1px solid black;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AP${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_JP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;border-bottom: 1px solid black;">${word.w5}${word.w8}m${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;border-bottom: 1px solid black;"><a href="http://ipa-reader.com/?text=${word.i5}m${word.i8}${word.i9}" target="_blank">${word.i5}m${word.i8}${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+
+                  <tr>
+                    <td class="tg-8wa7" rowspan="3"><b><i>Adverb</i></b></td>
+                    <td class="tg-x42o"><b>Neuter</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CN${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_VP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w6}${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i6}${word.i7}" target="_blank">${word.i6}${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-8wa7" rowspan="3"><b><i>Adverb</i></b></td>
+                    <td class="tg-x42o"><b>Neuter</b></td>
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AN${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_VP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w6}${word.w8}${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i6}${word.i8}${word.i9}" target="_blank">${word.i6}${word.i8}${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+                  <tr>
+                    <td class="tg-x42o"><b>Active</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CA${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_VP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w6}l${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i6}l${word.i7}" target="_blank">${word.i6}l${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-x42o"><b>Active</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AA${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_VP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w6}${word.w8}l${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i6}${word.i8}l${word.i9}" target="_blank">${word.i6}${word.i8}l${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+                  <tr>
+                    <td class="tg-x42o"><b>Passive</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CP${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_VP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w6}m${word.w7}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i6}m${word.i7}" target="_blank">${word.i6}m${word.i7}</a> </td>
+                    <!--End of entry-->
+                    <td class="tg-x42o"><b>Passive</b></td>
+                    <!--characters-->
+                        <td style="white-space: nowrap;text-align:center;">
+                        <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_AP${word.w}.png"
+                            alt="The front of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                            alt="The middle, or genus, of the character"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_VP${word.z}.png"
+                            style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"
+                            alt="The end of the character"
+                        class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}${word.u}H.png"style="max-width: 20%; height: auto; float:center; display: inline; white-space: nowrap;"alt="The mark for a double opposite"class="table-image"></td>
+                    <!--Latin-->
+                        <td style="text-align:center;">${word.w6}${word.w8}m${word.w9}</td>
+                    <!--IPA-->
+                    <td style="text-align:center;"><a href="http://ipa-reader.com/?text=${word.i6}${word.i8}m${word.i9}" target="_blank">${word.i6}${word.i8}m${word.i9}</a> </td>
+                    <!--End of entry-->
+                  </tr>
+</tbody></table>
+                                              `;
+      }
+    </script>
+    <br />
+    <sup>1</sup>International Phonetic Alphabet (click the word to hear it read aloud on IPA-Reader.com).
+    <br />
+    <hr />
+    <br />
+    <p align="center">
+      Created by
+      <a href="https://aidaneus.blogspot.com/p/index.html" target="_blank"
+        >Aidan Wakely-Mulroney</a>
+    </p>
+    <figure>
+      <center>
+        <img
+          src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/Resources/Developed-By-a-Human-Not-By-AI-Badge-black.svg"
+        />
+      </center>
+    </figure>
+        <p align="center">&copy; All rights reserved, May 2026.</p>
+  </body>
+</html>

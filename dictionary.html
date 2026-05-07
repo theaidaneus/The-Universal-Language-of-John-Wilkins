@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+  <head>
+    <title>The Universal Language of John Wilkins: Digital Dictionary</title>
+    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <style type="text/css">
+      a {
+        text-decoration: none;
+      }
+    </style>
+    <div class="top-banner">
+      <p>
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/index.html"
+          >Introduction &amp Resources</a>
+        |
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/dictionary.html"
+          >Dictionary</a>
+        |
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/additional_forms.html"
+          >Additional Forms</a>
+        |
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/general_scheme.html"
+          >Organization of the <i>Essay</i></a>
+        |
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/synopsis.html"
+          >Synopsis (Summary Table)</a>
+        |
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/pronunciation_characters.html"
+          >Pronunciation &amp Character Components</a>
+        |
+        <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/real_characters.html"
+          >All the Real Characters</a>
+      </p>
+    </div>
+    <div class="content" ;>
+      <h1
+        style="
+          text-align: center;
+          font-family: Garamond, &quot;Times New Roman&quot;, Times, serif;
+        "
+      >
+        The Universal Language of John Wilkins: <br>Digital Dictionary
+      </h1>
+      <p style="text-align: left">
+        This page allows you to look up any word in 
+        <a href="https://www.google.ca/books/edition/An_Essay_Towards_a_Real_Character/Q85TAAAAcAAJ?hl=en&gbpv=1&pg=PA26"target="_blank">Part II of the <i>Essay</i></a>, as well as the particles (<a href="https://www.google.ca/books/edition/An_Essay_Towards_a_Real_Character/Q85TAAAAcAAJ?hl=en&gbpv=1&pg=PA388"target="_blank">pages 388-391</a>). It will show the word in the real characters, provide a link to hear it pronounced, indicate where it is located in the text, and provide links to dictionaries.
+        </p>
+    </div>
+    <div id="container">
+      <p><b>Type or select a word in the list (suggested modern spellings are indicated with an asterisk*):</b></p>
+      <p></p>
+      <form autocomplete="off" id="search-form">
+        <input class="form-control" id="search-input" type="text" />
+        <div class="dropdown" id="dropdown"></div>
+      </form>
+      <table class="table" id="word-table">
+        <tbody id="word-table-body"></tbody>
+      </table>
+    </div>
+
+    <script>
+      let words = [];
+      const searchInput = document.getElementById("search-input");
+      const dropdown = document.getElementById("dropdown");
+      const wordTableBody = document.getElementById("word-table-body");
+
+      // Fetch words from the API
+      fetch(
+        "https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/data/words.json",
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          words = data;
+        });
+
+      // Filter words alphabetically, using the display column (p)
+      searchInput.addEventListener("input", () => {
+        const query = searchInput.value.toLowerCase();
+        dropdown.innerHTML = "";
+
+        if (query.length === 0) return;
+
+        const filteredwords = words.filter((word) =>
+          word.d.toLowerCase().includes(query),
+        );
+
+        filteredwords.forEach((word) => {
+          const item = document.createElement("div");
+          item.textContent = word.d;
+          item.addEventListener("click", () => selectword(word));
+          dropdown.appendChild(item);
+        });
+      });
+
+      // Select word from dropdown
+      function selectword(word) {
+        searchInput.value = word.d;
+        dropdown.innerHTML = "";
+        // Basic information
+        wordTableBody.innerHTML = `
+                                            <tr>
+                                                <th style="background-color: #d4d4d4;"><i>Basic Information</i></th>
+                                                        <td style="background-color: #d4d4d4;"></td>
+                                                </tr>
+                                            <tr>
+                                            <tr>
+                                                <th>Original Spelling</th>
+                                                    <td>${word.a}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Suggested Modern Spelling</th>
+                                                    <td>${word.b}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Real Characters</th>
+                                                    <td style="white-space: nowrap;">
+                                                                <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.t}H.png"
+                                                                alt="The upper mark to the character"
+                                                                style="max-width: 20%; height: auto; display: inline; white-space: nowrap;"
+                                                                class="table-image">
+                                                                <br>
+                                                                <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Front/Front_${word.v}_CN${word.w}.png"
+                                                                alt="The front of the character"
+                                                                style="max-width: 20%; height: auto; display: inline; white-space: nowrap;"
+                                                                class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Genus/Genus${word.x}.png"
+                                                                alt="The middle, or genus, of the character"
+                                                                style="max-width: 20%; height: auto; display: inline; white-space: nowrap;"
+                                                                class="table-image"><img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/End/End_${word.y}_SS${word.z}.png"
+                                                                style="max-width: 20%; height: auto; display: inline; white-space: nowrap;"
+                                                                alt="The end of the character"
+                                                                class="table-image">
+                                                                <br>
+                                                                <img src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/characters/Upper-Lower/${word.u}H.png"
+                                                                alt="The lower mark to the character"
+                                                                style="max-width: 20%; height: auto; display: inline; white-space: nowrap;"
+                                                                class="table-image">
+                                                </tr>
+                                            <tr>
+                                                <th>Phonetic Pronunciation in the <i>Essay</i> (<a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/pronunciation_characters.html">see here for a guide</a>)</th>
+                                                    <td>${word.w1}${word.w7}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>International Phonetic Alphabet pronunciation<sup>1</sup> (click to hear it read aloud on 
+                                                    IPA-Reader.com)</th>
+                                                    <td><a href="http://ipa-reader.com/?text=${word.i1}${word.i7}" target="_blank">${word.i1}${word.i7}</a>
+                                                </tr>
+                                            <!-- Place in the Categorization Scheme -->
+                                            <tr>
+                                                <th style="background-color: #d4d4d4;"><i>Place in the Categorization Scheme (the Tables)</i></th>
+                                                    <td style="background-color: #d4d4d4;"></td>
+                                                </tr>
+                                            <tr>
+                                                <th>Main Entry</th>
+                                                    <td>${word.c}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Word Type</th>
+                                                    <td>${word.n}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Chapter</th>
+                                                    <td>${word.i}: ${word.o}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Genus</th>
+                                                    <td>${word.x} / Chapter Section ${word.j}: ${word.p}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Difference</th>
+                                                    <td>${word.k}: ${word.q}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Species Number</th>
+                                                    <td>${word.l}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Synonym Number</th>
+                                                    <td>${word.m}</td>
+                                                </tr>
+                                            <!-- Position in the Synopsis -->
+                                            <tr>
+                                                <th style="background-color: #d4d4d4;"><i>Position in the Synopsis<sup>2</sup></i></th>
+                                                    <td style="background-color: #d4d4d4;"><a href="https://drive.google.com/file/d/1p-0iTr8eayPBHMzbi4Dry_aXTQRKIIrV/view" target="_blank">Scan of the Synopsis (p. 442-443)</a>
+                                                    <br><a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/synopsis.html">Digital Version of the Synopsis</a></td>
+                                                </tr>
+                                            <tr>
+                                                <th>Appears in the Synopsis?</th>
+                                                    <td>${word.f}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Section</th>
+                                                    <td>${word.r}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Column</th>
+                                                    <td>${word.s}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Tier</th>
+                                                    <td>${word.k}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Line</th>
+                                                    <td>${word.l}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Position in Line</th>
+                                                    <td>${word.g} ${word.h}</td>
+                                                </tr>
+                                            <!-- Original Text -->
+                                            <tr>
+                                                <th style="background-color: #d4d4d4;"><i>Location in the Tables</i></th>
+                                                    <td style="background-color: #d4d4d4;"></td>
+                                                </tr>
+                                            <tr>
+                                                <th>Page Number</th>
+                                                    <td>${word.e}</td>
+                                                </tr>
+                                            <tr>
+                                                <th>Link to Position in Digital Transcriptions</th>
+                                                    <td><a href="http://quod.lib.umich.edu/e/eebo/A66045.0001.001/1:8.${word.i}?rgn=div2;view=fulltext" target="_blank">UMichigan Digital Transcription</a> (scroll down to find the word)
+<!-- Placeholder to Incomplete Wikisource Version; need to add 26 to page number
+                                                    <br>
+                                                    <a href="https://en.wikisource.org/wiki/Page:AnEssayTowardsARealCharacterAndAPhilosophicalLanguage.pdf/${word.e}" target="_blank">Wiksource Digital Transcription (Only Up to p. 80)</a>
+-->
+                                                    </td>
+                                                </tr>
+                                            <tr>
+                                                <th>Link to Position in Scans of the Text<sup>3</sup></th>
+                                                    <td><a href="https://www.archive.org/details/an-essay-towards-a-real-character/An_Essay_Towards_a_Real_Character_and_a/page/${word.e}/mode/2up" target="_blank">Lyon Public Library</a> (PDF on Archive.org)
+                                                    <br><a href="https://www.google.ca/books/edition/An_Essay_Towards_a_Real_Character_and_a/BCCtZjBtiEYC?hl=en&gbpv=1&pg=PA${word.e}" target="_blank">Lyon Public Library</a> (Google Books)
+                                                    <br><a href="https://www.google.ca/books/edition/An_essay_towards_a_real_character/Bu7pwpr5qBcC?hl=en&gbpv=1&pg=PA${word.e}" target="_blank">National Library of the Czech Republic</a> (Google Books)
+                                                    <br><a href="https://www.google.ca/books/edition/An_Essay_Towards_a_Real_Character/Q85TAAAAcAAJ?hl=en&gbpv=1&pg=PA${word.e}" target="_blank">Bavarian State Library</a> (Google Books)
+                                                    </td>
+                                                </tr>
+<!-- External References -->
+                                            <tr>
+                                                <th style="background-color: #d4d4d4;"><i>References<sup>4</sup></i></th>
+                                                    <td style="background-color: #d4d4d4;"></td>
+                                                </tr>
+                                            <tr>
+                                                <th>Dictionaries: Original Spelling</th>
+                                                    <td><a href="http://en.wiktionary.org/wiki/${word.a}" target="_blank">Wiktionary</a>
+                                                    <br><a href="https://www.oed.com/search/dictionary/?scope=Entries&q=${word.a}" target="_blank">Oxford English Dictionary</a>
+                                                    <br><a href="https://dictionary.cambridge.org/us/dictionary/english/${word.a}" target="_blank">Cambridge Dictionary</a>                                                    
+                                                    <br><a href="http://www.merriam-webster.com/dictionary/${word.a}" target="_blank">Merriam-Webster</a>
+                                                    <br><a href="http://www.google.com/search?q=define:${word.a}" target="_blank">Google Definition</a>
+                                                    </td>
+                                                </tr>
+                                            <tr>
+                                                <th>Dictionaries: Suggested Modern Spelling (when one is given)</th>
+                                                    <td><a href="http://en.wiktionary.org/wiki/${word.b}" target="_blank">Wiktionary</a>
+                                                    <br><a href="https://www.oed.com/search/dictionary/?scope=Entries&q=${word.b}" target="_blank">Oxford English Dictionary</a>
+                                                    <br><a href="https://dictionary.cambridge.org/us/dictionary/english/${word.b}" target="_blank">Cambridge Dictionary</a>       
+                                                    <br><a href="http://www.merriam-webster.com/dictionary/${word.b}" target="_blank">Merriam-Webster</a>
+                                                    <br><a href="http://www.google.com/search?q=define:${word.b}" target="_blank">Google Definition</a>
+                                                    </td>
+                                                </tr>
+`;
+      }
+    </script>
+    <br>
+    <br>
+    <sup>1</sup>All IPA pronunciations are in terms of Received Pronunciation, even though the <i>Essay</i> uses contemporary 17<sup>th</sup> century pronunciation; for more information, see <a href="https://aidaneid.github.io/The-Universal-Language-of-John-Wilkins/pronunciation_characters.html">this page</a>.
+    <br>
+    <br>
+    <sup>2</sup>The <i>Essay</i> omits many words from the synopsis. If a word does not appear there, these values indicate where it <i>should</i> have appeared.
+    <br>
+    <br>
+    <sup>3</sup>Of these scans, the clearest is the National Library of the Czech Republic version. The Archive.org version can be downloaded.
+    <br>
+    <br>
+    <sup>4</sup>Most dictionaries should have the modern spelling of the word, but some&mdash;particularly the OED and Wiktionary&mdash;might also have the original spelling. Note that these links will not work for entries that contain multiple words. The Google definition has been included, as the autocorrect feature can be useful in identifying modern versions of the original spellings.
+    <br />
+    <hr />
+    <br />
+        <p align="center">
+      Created by
+      <a href="https://aidaneus.blogspot.com/p/index.html" target="_blank"
+        >Aidan Wakely-Mulroney</a>
+    </p>
+    <figure>
+      <center>
+        <img
+          src="https://raw.githubusercontent.com/aidaneid/The-Universal-Language-of-John-Wilkins/refs/heads/main/Resources/Developed-By-a-Human-Not-By-AI-Badge-black.svg"
+        />
+      </center>
+    </figure>
+        <p align="center">&copy; All rights reserved, May 2026.</p>
+  </body>
+</html>
